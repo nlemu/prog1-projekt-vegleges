@@ -1,0 +1,7 @@
+Cartopy==0.24.1
+matplotlib==3.10.0
+mpu==0.23.1
+numpy==2.2.2
+pandas==2.2.3
+Requests==2.32.3
+streamlit==1.41.1
