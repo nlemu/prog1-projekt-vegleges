@@ -15,7 +15,7 @@ from io import BytesIO
 import requests
 
 
-# adat betöltése (egyelőre csak a saját gépről)
+# adat betöltése 
 # eredetileg így csináltam, de mennie kell githubról közvetlenül is
 # de azért kikommentelve itt hagyom itt is és lentebb is a szükséges részt
 # def adatbetoltes(eleresi_utvonal):
@@ -226,7 +226,7 @@ def kompetitiv_jatek(coordinates):
                 st.session_state.round_start_time = time.time()
                 st.session_state.kovetkezo_kor = False
 
-                st.write(f"Gép gondolata: {st.session_state.gepgondolata}")
+                # st.write(f"Gép gondolata: {st.session_state.gepgondolata}")
                 # st.write("így néz ki most a session state", st.session_state)
                 # st.write("Adatbázis városai:", coordinates["Város"].tolist())
 
