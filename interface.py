@@ -335,7 +335,9 @@ def main():
     # coordinates = adatbetoltes(eleresi_utvonal) 
     
     # de mostmár így:
-    url_data = 'https://raw.githubusercontent.com/nlemu/prog1-projekt-streamlit-j/main/coordinates.xlsx'
+    # url_data = 'https://raw.githubusercontent.com/nlemu/prog1-projekt-streamlit-j/main/coordinates.xlsx' # ez a régi, ebben elméletileg még nincs benne Kővágóörs
+    
+    url_data = "https://github.com/nlemu/prog1-projekt-vegleges/blob/main/coordinates.xlsx"
     response = requests.get(url_data)
     coordinates = pd.read_excel(BytesIO(response.content))
     
