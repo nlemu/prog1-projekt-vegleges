@@ -111,9 +111,8 @@ def jatek_tipus_valasztas():
 # új játék indítása függvény --> nem tökéletesen jelenik meg és általában kétszer kell kattintani, de nem tudom hogyan lehetne kijavítani
 def új_játék_indítása():
     """Új játék indításához a session state-ben tárolt dolgokat kitörli"""
-
-    for key in st.session_state.keys():
-        del st.session_state[key]
+    
+    st.session_state.clear()
     jatek_tipus_valasztas()
 
 
@@ -165,7 +164,11 @@ def egyszeru_jatek(coordinates):
             st.session_state.tipp_szam = 0
             st.session_state.start_time = time.time()
 
-        locale.setlocale(locale.LC_COLLATE, "hu_HU.UTF-8")
+        # locale.setlocale(locale.LC_COLLATE, "hu_HU.UTF-8")
+        # streamlit ezt nem szereti
+        
+        # helyette applikációhoz:
+        locale.setlocale(locale.LC_COLLATE, "")
         tipp = st.selectbox(
             label="Válaszd ki a tipped a legördülő listából!",
             options=sorted(coordinates["Város"].tolist(), key=locale.strxfrm),
@@ -261,7 +264,12 @@ def kompetitiv_jatek(coordinates):
                 st.session_state.round_tipp_szam = 0
                 st.session_state.round_start_time = time.time()
 
-            locale.setlocale(locale.LC_COLLATE, "hu_HU.UTF-8")
+            
+            # locale.setlocale(locale.LC_COLLATE, "hu_HU.UTF-8")
+            # streamlit ezt nem szereti
+        
+            # helyette applikációhoz:
+            locale.setlocale(locale.LC_COLLATE, "")
             tipp = st.selectbox(
                 label="Válaszd ki a tipped a legördülő listából!",
                 options=sorted(coordinates["Város"].tolist(), key=locale.strxfrm),
