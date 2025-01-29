@@ -14,7 +14,7 @@ import requests
 import locale
 
 
-# az alapjátékhoz szükséges függvény
+# az alapjátékhoz szükséges függvény 
 def jatek(tipp, coordinates, gepgondolata):
     """Inputként megkapja a játékos által tippelt várost,
     ha nem egyezik meg a gép gondolatával, akkor visszaadja, hogy milyen irányba és milyen távolságra található tőle.
