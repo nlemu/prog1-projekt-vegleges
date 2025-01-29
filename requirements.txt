@@ -8,4 +8,3 @@ streamlit==1.41.1
 setuptools
 openpyxl
 Babel==2.13.1
-PyICU==2.11
