@@ -405,6 +405,7 @@ def main():
 
 
 if __name__ == "__main__":
-    """A fájl lefuttatásakor csak ez fut le automatikusan, ez hívja meg a main függvényt, ami a játék elindításához kell."""
+    """A fájl lefuttatásakor csak ez fut le automatikusan, ez hívja meg a main függvényt, ami a játék elindításához kell.
+    """
 
     main()
