@@ -4,4 +4,5 @@ geopy==2.3.0
 pandas==2.2.3
 Requests==2.32.3
 streamlit==1.41.1
+openpyxl==3.1.2
 
