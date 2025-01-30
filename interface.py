@@ -8,11 +8,11 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-import mpu
+# import mpu
 from io import BytesIO
 import requests
 import locale
-
+import geopy.distance
 
 # az alapjátékhoz szükséges függvény 
 def jatek(tipp, coordinates, gepgondolata):
@@ -43,7 +43,11 @@ def jatek(tipp, coordinates, gepgondolata):
         dif_lat = abs(gep_lat - tipp_lat) * lat_km
         dif_long = abs(gep_long - tipp_long) * long_km
 
-        distance = mpu.haversine_distance((gep_lat, gep_long), (tipp_lat, tipp_long))
+        # distance = mpu.haversine_distance((gep_lat, gep_long), (tipp_lat, tipp_long))
+        gep_koordinatak = (gep_lat, gep_long)
+        tipp_koordinatak = (tipp_lat, tipp_long)
+        distance = geopy.distance.geodesic(gep_koordinatak, tipp_koordinatak).km        
+        
         # kicsit necces, hogy a pontos távolság Haversine formulával van számolva, viszont az, hogy mennyire van délre/északra/keletre/nyugatra dolgok meg laposföldhöz van viszonyítva
 
         eszakdel = "" if dif_lat < 3 else ("észak" if gep_lat > tipp_lat else "dél")
@@ -405,7 +409,4 @@ def main():
 
 
 if __name__ == "__main__":
-    """A fájl lefuttatásakor csak ez fut le automatikusan, ez hívja meg a main függvényt, ami a játék elindításához kell.
-    """
-
     main()
